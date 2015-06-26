@@ -19,13 +19,17 @@ func getInput(args string) (string, error) {
 		return string(bytes), nil
 	}
 
-	_, err = os.Stat(args)
-	if err != nil {
-		return args, nil
+	if Exists(args) {
+		content, err := ioutil.ReadFile(args)
+		if err != nil {
+			return "", err
+		}
+		return string(content), nil
 	}
-	content, err := ioutil.ReadFile(args)
-	if err != nil {
-		return "", err
-	}
-	return string(content), nil
+	return args, nil
+}
+
+func Exists(name string) bool {
+	_, err := os.Stat(name)
+	return err == nil
 }
