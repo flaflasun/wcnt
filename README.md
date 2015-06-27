@@ -10,7 +10,7 @@ Description
 
 ## Demo
 
-Nothing...
+![wcnt-demo](http://g.recordit.co/sPV6EkpssN.gif)
 
 Installation
 ============
