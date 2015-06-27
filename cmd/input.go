@@ -7,12 +7,12 @@ import (
 )
 
 func getInput(args string) (string, error) {
-	input, err := getPipe()
+	input, err := getArgs(args)
 	if err != nil {
 		return "", err
 	}
 	if len(input) == 0 {
-		input, err = getArgs(args)
+		input, err = getPipe()
 		if err != nil {
 			return "", err
 		}
