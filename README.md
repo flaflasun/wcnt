@@ -18,7 +18,7 @@ Installation
 To install, use `go get`:
 
 ```bash
-$ go get -d github.com/flaflasun/wcnt
+$ go get github.com/flaflasun/wcnt
 ```
 
 Command Line Options
