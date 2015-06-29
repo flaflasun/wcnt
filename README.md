@@ -10,7 +10,7 @@ Description
 
 ## Demo
 
-![wordc-demo](http://g.recordit.co/sPV6EkpssN.gif)
+![wordc-demo](http://g.recordit.co/z2f4AFAs91.gif)
 
 Installation
 ============
