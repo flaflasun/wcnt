@@ -4,12 +4,12 @@ import (
 	"os"
 
 	"github.com/codegangsta/cli"
-	"github.com/flaflasun/wcnt/cmd"
+	"github.com/flaflasun/wordc/cmd"
 )
 
 func main() {
 	app := cli.NewApp()
-	app.Name = "wcnt"
+	app.Name = "wordc"
 	app.Version = Version
 	app.Usage = "print the word count"
 	app.Author = "flaflasun"
@@ -35,6 +35,6 @@ func main() {
 		},
 	}
 
-	app.Action = cmd.Wcnt
+	app.Action = cmd.Wordc
 	app.Run(os.Args)
 }

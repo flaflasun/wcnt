@@ -8,7 +8,7 @@ import (
 	"github.com/codegangsta/cli"
 )
 
-func Wcnt(c *cli.Context) {
+func Wordc(c *cli.Context) {
 	words := make(Words, 0, 0)
 	ign := c.String("ignorechar")
 	del := c.String("delimiter")

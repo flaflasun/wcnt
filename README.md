@@ -1,4 +1,4 @@
-wcnt
+wordc
 ====
 
 Print the word count tool
@@ -6,11 +6,11 @@ Print the word count tool
 Description
 ===========
 
-`wcnt` is a command line tool. `wcnt` outputs the word occurrences in the string.
+`wordc` is a command line tool. `wordc` outputs the word occurrences in the string.
 
 ## Demo
 
-![wcnt-demo](http://g.recordit.co/sPV6EkpssN.gif)
+![wordc-demo](http://g.recordit.co/sPV6EkpssN.gif)
 
 Installation
 ============
@@ -18,7 +18,7 @@ Installation
 To install, use `go get`:
 
 ```bash
-$ go get github.com/flaflasun/wcnt
+$ go get github.com/flaflasun/wordc
 ```
 
 Command Line Options
