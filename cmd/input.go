@@ -37,11 +37,11 @@ func getPipe() (string, error) {
 			return "", err
 		}
 		mode := stat.Mode()
-		if (mode & os.ModeNamedPipe != 0) || mode.IsRegular() {
+		if (mode&os.ModeNamedPipe != 0) || mode.IsRegular() {
 			return getStdin(stdin)
 		}
 	}
-	return "" ,nil
+	return "", nil
 }
 
 func getStdin(stdin *os.File) (string, error) {
