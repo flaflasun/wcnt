@@ -5,6 +5,7 @@ import (
 	"sort"
 
 	"github.com/codegangsta/cli"
+	"github.com/flaflasun/wordc/wordcount"
 )
 
 func Wordc(c *cli.Context) {
@@ -20,7 +21,7 @@ func Wordc(c *cli.Context) {
 		edit.ignorecase()
 	}
 
-	words := make(Words, 0, 0)
+	words := make(wordcount.Words, 0, 0)
 	words.AddWords(edit.text)
 
 	if c.Bool("reverse") {

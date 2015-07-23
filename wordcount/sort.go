@@ -1,4 +1,4 @@
-package cmd
+package wordcount
 
 func (w Words) Len() int {
 	return len(w)
