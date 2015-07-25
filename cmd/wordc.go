@@ -19,7 +19,7 @@ func Wordc(c *cli.Context) {
 	edit.ignoreChar(c.String("ignorechar"))
 	edit.addDelimiter(c.String("delimiter"))
 	if c.Bool("ignorecase") {
-		edit.ignorecase()
+		edit.ignoreCase()
 	}
 
 	words := make(wordcount.Words, 0, 0)

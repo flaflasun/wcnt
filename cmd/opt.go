@@ -32,6 +32,6 @@ func (e *editor) addDelimiter(del string) {
 	}
 }
 
-func (e *editor) ignorecase() {
+func (e *editor) ignoreCase() {
 	e.text = strings.ToLower(e.text)
 }
