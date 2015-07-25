@@ -2,6 +2,7 @@ package wordcount
 
 import (
 	"fmt"
+	"io"
 	"strings"
 )
 
@@ -25,9 +26,9 @@ func (w *Words) AddWords(t string) {
 	}
 }
 
-func (w *Words) String() {
+func (w *Words) String(wr io.Writer) {
 	for _, word := range *w {
-		fmt.Println(word.Name, word.Count)
+		fmt.Fprintln(wr, word.Name, word.Count)
 	}
 }
 

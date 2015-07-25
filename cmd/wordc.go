@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"log"
+	"os"
 	"sort"
 
 	"github.com/codegangsta/cli"
@@ -29,5 +30,5 @@ func Wordc(c *cli.Context) {
 	} else {
 		sort.Sort(sort.Reverse(words))
 	}
-	words.String()
+	words.String(os.Stdout)
 }
