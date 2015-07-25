@@ -1,6 +1,10 @@
 package wordcount
 
-import "testing"
+import (
+	"bytes"
+	"strconv"
+	"testing"
+)
 
 type expectedData struct {
 	word  string
@@ -25,6 +29,23 @@ func TestAddWords(t *testing.T) {
 	}
 }
 
+func TestString(t *testing.T) {
+	buf := &bytes.Buffer{}
+	words := make(Words, 0, 0)
+	words.AddWords(text)
+	words.String(buf)
+	outputString := buf.String()
+	var expected string
+	for i := range expecteddata {
+		e := &expecteddata[i]
+		expected += e.word + " " + strconv.FormatUint(uint64(e.count), 10) + "\n"
+	}
+
+	if outputString != expected {
+		t.Errorf("Expected:\n%v\nbut:\n%v", expected, outputString)
+	}
+}
+
 func TestWordCount(t *testing.T) {
 	wordcount := wordCount(text)
 
@@ -32,7 +53,7 @@ func TestWordCount(t *testing.T) {
 		expected := &expecteddata[i]
 		if wordcount[expected.word] != expected.count {
 			t.Log("test case: ", expected.word)
-			t.Errorf("Expected %d, but %d:", expected.count, wordcount[expected.word])
+			t.Errorf("Expected %d, but %d", expected.count, wordcount[expected.word])
 		}
 	}
 }
