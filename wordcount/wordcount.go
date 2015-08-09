@@ -6,33 +6,33 @@ import (
 	"strings"
 )
 
-type Word struct {
-	Name  string
+type WordCounter struct {
+	Word  string
 	Count uint16
 }
 
-type Words []Word
+type WordCounters []WordCounter
 
-func (w *Words) AddWords(t string) {
-	wordcount := wordCount(t)
-	*w = make(Words, 0, len(wordcount))
+func (wc *WordCounters) AddWords(t string) {
+	cw := countWord(t)
+	*wc = make(WordCounters, 0, len(cw))
 
-	for n := range wordcount {
-		word := Word{
-			Name:  n,
-			Count: wordcount[n],
+	for w := range cw {
+		word := WordCounter{
+			Word:  w,
+			Count: cw[w],
 		}
-		*w = append(*w, word)
+		*wc = append(*wc, word)
 	}
 }
 
-func (w *Words) String(wr io.Writer) {
-	for _, word := range *w {
-		fmt.Fprintln(wr, word.Name, word.Count)
+func (wc *WordCounters) String(wr io.Writer) {
+	for _, w := range *wc {
+		fmt.Fprintln(wr, w.Word, w.Count)
 	}
 }
 
-func wordCount(t string) map[string]uint16 {
+func countWord(t string) map[string]uint16 {
 	m := make(map[string]uint16)
 	for _, word := range strings.Fields(t) {
 		m[word]++

@@ -22,13 +22,13 @@ func Wordc(c *cli.Context) {
 		edit.ignoreCase()
 	}
 
-	words := make(wordcount.Words, 0, 0)
-	words.AddWords(edit.text)
+	wc := make(wordcount.WordCounters, 0, 0)
+	wc.AddWords(edit.text)
 
 	if c.Bool("reverse") {
-		sort.Sort(words)
+		sort.Sort(wc)
 	} else {
-		sort.Sort(sort.Reverse(words))
+		sort.Sort(sort.Reverse(wc))
 	}
-	words.String(os.Stdout)
+	wc.String(os.Stdout)
 }

@@ -18,22 +18,22 @@ var expecteddata = []expectedData{
 }
 
 func TestAddWords(t *testing.T) {
-	words := make(Words, 0, 0)
-	words.AddWords(text)
+	wc := make(WordCounters, 0, 0)
+	wc.AddWords(text)
 
 	for i := range expecteddata {
 		expected := &expecteddata[i]
-		if words[i].Name != expected.word || words[i].Count != expected.count {
-			t.Errorf("Expected %v: %d, but %v: %d", expected.word, expected.count, words[i].Name, words[i].Count)
+		if wc[i].Word != expected.word || wc[i].Count != expected.count {
+			t.Errorf("Expected %v: %d, but %v: %d", expected.word, expected.count, wc[i].Word, wc[i].Count)
 		}
 	}
 }
 
 func TestString(t *testing.T) {
 	buf := &bytes.Buffer{}
-	words := make(Words, 0, 0)
-	words.AddWords(text)
-	words.String(buf)
+	wc := make(WordCounters, 0, 0)
+	wc.AddWords(text)
+	wc.String(buf)
 	outputString := buf.String()
 	var expected string
 	for i := range expecteddata {
@@ -46,14 +46,14 @@ func TestString(t *testing.T) {
 	}
 }
 
-func TestWordCount(t *testing.T) {
-	wordcount := wordCount(text)
+func TestCountWord(t *testing.T) {
+	cw := countWord(text)
 
 	for i := range expecteddata {
 		expected := &expecteddata[i]
-		if wordcount[expected.word] != expected.count {
+		if cw[expected.word] != expected.count {
 			t.Log("test case: ", expected.word)
-			t.Errorf("Expected %d, but %d", expected.count, wordcount[expected.word])
+			t.Errorf("Expected %d, but %d", expected.count, cw[expected.word])
 		}
 	}
 }
